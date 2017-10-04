@@ -1,0 +1,16 @@
+# -*- coding: utf-8 -*-
+# vim: ft=jinja
+
+{% set os_family_map = salt['grains.filter_by']({
+    'RedHat': {
+      'pkg': 'at',
+      'service': 'atd',
+    },
+  }, grain='os_family', merge=salt['pillar.get']('at:lookup')) %}
+
+{% set at_settings = salt['pillar.get'](
+    'at',
+    default=os_family_map,
+    merge=True
+  )
+%}
