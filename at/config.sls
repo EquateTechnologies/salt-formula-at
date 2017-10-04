@@ -36,5 +36,5 @@ at.{{ job }}:
 
 {% if 'use_deny' in at_settings and not at_settings.use_deny %}
 /etc/at.deny:
-  file.absent:
+  file.absent
 {% endif %}
