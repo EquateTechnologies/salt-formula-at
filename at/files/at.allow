@@ -1,5 +1,5 @@
 {%- if users in at_settings %}
-{% for user in at_settings.pop('users',[]) %}
+{% for user in at_settings.pop('allow',[]) %}
 {{ user }}
 {% endfor -%}
 {%- endif %}
