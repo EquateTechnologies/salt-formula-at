@@ -32,6 +32,8 @@ at.{{ job }}:
     - user: root
     - group: root
     - mode: 0600
+    - context:
+      at_settings: {{ at_settings }}
 {% endif %}
 
 {% if 'use_deny' in at_settings and not at_settings.use_deny %}
