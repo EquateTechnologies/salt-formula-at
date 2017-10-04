@@ -23,3 +23,18 @@ at.{{ job }}:
         {% endif %}
 {% endfor %}
 {% endif %}
+
+{% if 'use_allow' in at_settings and at_settings.use_allow and 'allow' in at_settings %}
+/etc/at.allow:
+  file.managed:
+    - source: salt://at/files/at.allow
+    - template: jinja
+    - user: root
+    - group: root
+    - mode: 0600
+{% endif %}
+
+{% if 'use_deny' in at_settings and not at_settings.use_deny %}
+/etc/at.deny:
+  file.absent:
+{% endif %}

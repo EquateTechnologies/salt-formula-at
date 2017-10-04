@@ -2,6 +2,10 @@ at:
   enabled: True   # Default
   lookup:       # Not needed, just if you want to use another at program
     pkg: 'at'
+  use_allow: True
+  use_deny: False
+  allow:
+    - root
   jobs:
     job1:
       type: 'present' # Default
